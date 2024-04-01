@@ -6,7 +6,7 @@ GREEN = 0
 RED = 1
 GREY = 2
 WHITE = 3
-
+# comment
 class ForestFireSimulation:
     def __init__(self, width, height, density, start_fire_x, start_fire_y):
         self.width = width
