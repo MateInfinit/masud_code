@@ -155,7 +155,7 @@ def calculate_score():
                 break
 
 # Example usage
-image_path = 'C:\\matei\\masud\\treePhoto.jpeg'
+image_path = 'C:\\matei\\git masud local clone\\masud_code\\treePhoto.jpeg'
 result_matrix = create_matrix(image_path)
 
 # Create the UI window
