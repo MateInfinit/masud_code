@@ -83,9 +83,7 @@ int main()
     /*for(int i=1;i<=n;i++)
         for(int j=1;j<=n;j++)
             fin>>M[i][j];*/
-    for(int i=1;i<=100;i++)
-    {
-
+    
         randnum(n,M);
         fout<<"matricea initiala"<<endl;
         for(int i=1;i<=n;i++)
@@ -118,7 +116,6 @@ int main()
         pinit=0;
         S=0;
         ST=0;
-    }
 
     return 0;
 }
