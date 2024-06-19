@@ -1,0 +1,66 @@
+#include <iostream>
+#include <fstream>
+#include <queue>
+#include <iomanip>
+using namespace std;
+ifstream fin("date.in");
+ofstream fout("date.out");
+queue <pair<int,int>> q;
+int dy[] = {0, 1, 0, -1};
+int dx[] = {-1, 0, 1, 0};
+int a[101][101], b[101][101], n, m;
+void lee()
+{
+    while(!q.empty())
+    {
+        pair<int,int> c = q.front();
+        q.pop();
+        for(int i = 0; i < 4; i++)
+        {
+            if(c.first + dx[i] >= 1 && c.first + dx[i] <= n && c.second + dy[i] >= 1 && c.second + dy[i] <= m)
+                if(a[c.first+ dx[i]][c.second+ dy[i]] == 1)
+            {
+                q.push(make_pair(c.first + dx[i], c.second + dy[i]));
+                a[c.first + dx[i]][c.second + dy[i]] = -1;
+            }
+        }
+        for(int i = 1; i <= n; i++)
+    {
+        for(int j = 1; j <= m; j++)
+        {
+            fout << a[i][j] << " ";
+            if(a[i][j] == -1)
+                a[i][j] = 0;
+        }
+        fout << endl;
+    }
+    fout << endl;
+    }
+}
+int main()
+{
+    fin >> n >> m;
+    int istart, jstart;
+    for(int i = 1; i <= n; i++)
+        for(int j = 1; j <= m; j++)
+        {
+            fin >> a[i][j];
+                if(a[i][j] == 2)
+                {
+                    istart = i;
+                    jstart = j;
+                }
+        }
+    for(int i = 1; i <= n; i++)
+        for(int j = 1; j <= m; j++)
+            b[i][j] = a[i][j];
+    q.push(make_pair(istart,jstart));
+    lee();
+    for(int i = 1; i <= n; i++)
+    {
+        for(int j = 1; j <= m; j++)
+            fout << a[i][j] << " ";
+        fout << endl;
+    }
+    return 0;
+}
